@@ -20,4 +20,17 @@ $(document).ready(function(){
             })
         }
     })
+
+    $('#52').on('submit',function(e){
+        e.preventDefault();
+            $.ajax({
+                url: '/user_login',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    password: $('#password').val(),
+                    email: $('#email').val()
+                })
+            })
+    })
 })
