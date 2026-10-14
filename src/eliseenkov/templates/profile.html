@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой профиль</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .info-block {
+            background: #f8f9fc;
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .info-block:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .info-label {
+            color: #666;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .info-value {
+            color: #333;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .balance-value {
+            color: #2e7d32;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .logout-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 35px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 5px 15px rgba(238, 90, 111, 0.3);
+        }
+
+        .logout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(238, 90, 111, 0.5);
+        }
+
+        .logout-btn:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        <div class="avatar">
+            👤
+        </div>
+        
+        <h1>{{ user.username }}</h1>
+        <p class="subtitle">Личный кабинет</p>
+        
+        <div class="info-block">
+            <span class="info-label">📧 Email</span>
+            <span class="info-value">{{ user.email }}</span>
+        </div>
+        
+        <div class="info-block">
+            <span class="info-label">💰 Баланс</span>
+            <span class="info-value balance-value">{{ user.balance }} ₽</span>
+        </div>
+        
+        <a href="/logout" class="logout-btn">Выйти из аккаунта</a>
+    </div>
+</body>
+</html>
