@@ -34,19 +34,16 @@ $(document).ready(function(){
     // --- АВТОРИЗАЦИЯ ---
     $('#52').on('submit',function(e){
         e.preventDefault();
-        
         $.ajax({
             url: '/user_login',
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({
                 password: $('#password').val(),
-                email: $('#email').val()
+                email: $('#username').val()
             }),
             success: function(response) {
-                alert(response.message);
                 if(response.success) {
-                    // 🔑 После успешного входа — на страницу профиля
                     window.location.href = '/profile'; 
                 }
             },
